@@ -1,0 +1,159 @@
+﻿<common:LayoutAwarePage x:Class="AnalystRevisionMap.UI.Views.Companies"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        xmlns:common="using:AnalystRevisionMap.UI.Common"
+                        xmlns:controls="using:AnalystRevisionMap.UI.Controls"
+                        xmlns:views="using:AnalystRevisionMap.UI.Views"
+                        DataContext="{Binding CompanyViewModel, Source={StaticResource ViewModelLocator}}"
+                        NavigationCacheMode="Disabled"
+                        mc:Ignorable="d"
+                        d:DesignWidth="1366" d:DesignHeight="768">
+    
+    <Page.Transitions>
+        <TransitionCollection>
+            <EntranceThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <FlipView x:Name="FillView" 
+                    Background="Transparent" 
+                    BorderThickness="0"
+                    SelectionChanged="FillViewSelectionChanged"
+                  Loaded="FillViewLoaded">
+            <FlipView.ItemTemplate>
+                <DataTemplate>
+                    <Grid x:Name="CompanyContainer" 
+                        Margin="10,0,5,5"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                             
+                        <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                             
+                        <TextBlock x:Name="SubTitle" 
+                                Loaded="SubTitleLoaded"
+                                Style="{StaticResource SubTitleStyle}" 
+                                Text="{Binding Sector.DisplayName}"/>
+                             
+                        <GridView x:Name="CompanyGridView"
+                                Grid.Row="1"
+                                Loaded="CompanyGridViewLoaded" 
+                                ItemClick="CompanyGridViewItemClick"
+                                IsItemClickEnabled="True"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                Background="Transparent"
+                                SelectionMode="None">
+                            <GridView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VariableSizedWrapGrid Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </GridView.ItemsPanel>
+                        </GridView>
+            </Grid>
+        </DataTemplate>
+            </FlipView.ItemTemplate>
+        </FlipView>
+              
+        <FlipView x:Name="SnappedView"
+                Grid.Row="1"
+                Background="Transparent"
+                BorderThickness="0"
+                ItemsSource="{Binding Sectors}"
+                Visibility="Collapsed"
+                SelectedItem="{Binding SelectedSector, Mode=TwoWay}">
+        <FlipView.ItemTemplate>
+            <DataTemplate>
+            <Grid x:Name="ListViewContainer"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="SnappedSubTitle"
+                            Style="{StaticResource SnappedSubTitleStyle}"
+                            Text="{Binding Sector.DisplayName}"/>
+                <ListView x:Name="SnappedSectorView"
+                            Grid.Row="1"
+                            ItemsSource="{Binding Companies}"
+                            Loaded="SnappedViewLoaded"/>
+            </Grid>
+            </DataTemplate>
+        </FlipView.ItemTemplate>
+        </FlipView>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="FullScreenLandscape"/>
+                <VisualState x:Name="Filled">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FillView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="appBar" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SnappedView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="FullScreenPortrait"/>
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FillView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="appBar" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SnappedView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+    </Grid>
+    
+    <Page.BottomAppBar>
+        <AppBar x:Name="appBar"  
+                Padding="10,0,5,0"
+                Background="DarkGray"
+                IsOpen="False" IsSticky="False">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <StackPanel x:Name="sectorAppBarPnl"
+                            Grid.Column="0"
+                            Margin="0,10"
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center">
+                    <controls:SettingsAppBarControl x:Name="settingsControl"
+                                              SettingsChanged="SettingsChanged"/>
+                </StackPanel>
+                
+                <!--<Button x:Name="updateDataBtn" 
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource DownloadAppBarButtonStyle}" 
+                        Tapped="UpdateDataBtnTapped"/>-->
+            </Grid>
+            
+        </AppBar>
+    </Page.BottomAppBar>
+    
+</common:LayoutAwarePage>

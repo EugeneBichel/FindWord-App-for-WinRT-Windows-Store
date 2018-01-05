@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>EUGENE_PC</Machine>
+    <WindowsUser>biche_000</WindowsUser>
+    <SolutionConfiguration>Release|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\FindWord.exe">
+      <PackagePath>FindWord.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\FindWord.pdb">
+      <PackagePath>FindWord.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\packages\metroioc.2.0.5.0\lib\winrt45\metroioc.dll">
+      <PackagePath>metroioc.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\packages\Newtonsoft.Json.4.5.9\lib\winrt45\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\packages\Newtonsoft.Json.4.5.9\lib\winrt45\Newtonsoft.Json.xml">
+      <PackagePath>Newtonsoft.Json.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Assets\FindWord150.png">
+      <PackagePath>Assets\FindWord150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Assets\FindWord30x30.png">
+      <PackagePath>Assets\FindWord30x30.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Assets\FindWord310x150.png">
+      <PackagePath>Assets\FindWord310x150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Assets\FindWord50x50.png">
+      <PackagePath>Assets\FindWord50x50.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Assets\FindWord620x300.png">
+      <PackagePath>Assets\FindWord620x300.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Data\words.json">
+      <PackagePath>Data\words.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Controls\PrivacyControl.xaml">
+      <PackagePath>Controls\PrivacyControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Controls\HelpControl.xaml">
+      <PackagePath>Controls\HelpControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Views\WordsWithTheSameLengthPage.xaml">
+      <PackagePath>Views\WordsWithTheSameLengthPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Views\ExtendedSplash.xaml">
+      <PackagePath>Views\ExtendedSplash.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Controls\AboutControl.xaml">
+      <PackagePath>Controls\AboutControl.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Views\Shell.xaml">
+      <PackagePath>Views\Shell.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Views\StartPage.xaml">
+      <PackagePath>Views\StartPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

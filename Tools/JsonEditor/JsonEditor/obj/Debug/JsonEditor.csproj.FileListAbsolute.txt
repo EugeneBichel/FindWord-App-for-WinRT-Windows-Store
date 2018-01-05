@@ -1,0 +1,16 @@
+G:\Projects\vs2008\JsonEditor\JsonEditor\obj\Debug\ResolveAssemblyReference.cache
+G:\Projects\vs2008\JsonEditor\JsonEditor\obj\Debug\JsonEditor.Form1.resources
+G:\Projects\vs2008\JsonEditor\JsonEditor\obj\Debug\JsonEditor.Properties.Resources.resources
+G:\Projects\vs2008\JsonEditor\JsonEditor\obj\Debug\JsonEditor.csproj.GenerateResource.Cache
+G:\Projects\vs2008\JsonEditor\JsonEditor\bin\Debug\JsonEditor.exe
+G:\Projects\vs2008\JsonEditor\JsonEditor\bin\Debug\JsonEditor.pdb
+G:\Projects\vs2008\JsonEditor\JsonEditor\obj\Debug\JsonEditor.exe
+G:\Projects\vs2008\JsonEditor\JsonEditor\obj\Debug\JsonEditor.pdb
+g:\Projects\Metro\wordfinder\Tools\JsonEditor\JsonEditor\obj\Debug\JsonEditor.exe
+g:\Projects\Metro\wordfinder\Tools\JsonEditor\JsonEditor\obj\Debug\JsonEditor.pdb
+g:\Projects\Metro\wordfinder\Tools\JsonEditor\JsonEditor\bin\Debug\JsonEditor.exe
+g:\Projects\Metro\wordfinder\Tools\JsonEditor\JsonEditor\bin\Debug\JsonEditor.pdb
+g:\Projects\Metro\wordfinder\Tools\JsonEditor\JsonEditor\obj\Debug\ResolveAssemblyReference.cache
+g:\Projects\Metro\wordfinder\Tools\JsonEditor\JsonEditor\obj\Debug\JsonEditor.Form1.resources
+g:\Projects\Metro\wordfinder\Tools\JsonEditor\JsonEditor\obj\Debug\JsonEditor.Properties.Resources.resources
+g:\Projects\Metro\wordfinder\Tools\JsonEditor\JsonEditor\obj\Debug\JsonEditor.csproj.GenerateResource.Cache

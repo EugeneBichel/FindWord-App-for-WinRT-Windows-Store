@@ -1,0 +1,192 @@
+﻿<common:LayoutAwarePage x:Class="FindWord.Views.WordsWithTheSameLengthPage"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:local="using:FindWord"
+                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        xmlns:common="using:FindWord.Common"
+                        DataContext="{Binding WordsWithTheSameLengthViewModel, Source={StaticResource ViewModelLocator},Mode=TwoWay}"
+                        NavigationCacheMode="Disabled"
+                        mc:Ignorable="d"
+                        d:DesignWidth="1366" d:DesignHeight="768">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <EntranceThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid x:Name="LayoutRoot" Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="MatchedWordsHeader"
+                   Text="{Binding Title}" 
+                   Margin="10,10" 
+                   Style="{StaticResource HeaderTextBlockStyleFilledView}"/>
+
+        <StackPanel x:Name="stpTopN" Grid.Row="1" Orientation="Vertical">
+            <TextBlock x:Name="txtBlockTopN" Margin="10,0"
+                           Text="How many words to show: "
+                           VerticalAlignment="Center"
+                           Style="{StaticResource HeaderTextBlockStyleFilledView}"/>
+            <StackPanel Orientation="Horizontal">
+                <RadioButton x:ConnectionId='1' x:Name="RadioButtonTenWords" Content="10" 
+                                                             
+                             Style="{StaticResource RadioButtonFilledView}"
+                             IsChecked="True"
+                             GroupName="WordsNumber" ToolTipService.ToolTip="Show first 10 words"/>
+                <RadioButton x:ConnectionId='2' x:Name="RadioButtonThirdWords" Content="30"                                   
+                             Style="{StaticResource RadioButtonFilledView}"
+                             IsChecked="False"
+                             GroupName="WordsNumber" ToolTipService.ToolTip="Show first 30 words"/>
+                <RadioButton x:ConnectionId='3' x:Name="RadioButtonFiftyWords" Content="50" 
+                                                               
+                             Style="{StaticResource RadioButtonFilledView}"
+                             IsChecked="False"
+                             GroupName="WordsNumber" ToolTipService.ToolTip="Show first 50 words"/>
+                <RadioButton x:ConnectionId='4' x:Name="RadioButtonHundredWords" Content="100"                                     
+                             Style="{StaticResource RadioButtonFilledView}"
+                             IsChecked="False"
+                             GroupName="WordsNumber" ToolTipService.ToolTip="Show first 100 words"/>
+                <RadioButton x:ConnectionId='5' x:Name="RadioButtonTwoHundredWords" Content="200" 
+                                                                    
+                             Style="{StaticResource RadioButtonFilledView}"
+                             IsChecked="False"
+                             GroupName="WordsNumber" ToolTipService.ToolTip="Show first 200 words"/>
+            </StackPanel>
+            
+        </StackPanel>
+
+        <ScrollViewer x:Name="ScrollViewerWordsFilledView" 
+                      Grid.Row="2"
+                      Margin="5,5,5,10" 
+                      Style="{StaticResource HorizontalScrollViewerStyle}"
+                      Visibility="Visible">
+            <ListView x:Name="lstWordsFilledView"
+                      Background="Black" 
+                      IsItemClickEnabled="False" IsTapEnabled="False" 
+                      SelectionMode="None" IsHoldingEnabled="False" 
+                      AllowDrop="False" CanDragItems="False"
+                      ItemsSource="{Binding Words,Mode=TwoWay}">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapGrid IsTapEnabled="False" AllowDrop="False" IsHoldingEnabled="False"
+                                  VirtualizingStackPanel.VirtualizationMode="Recycling" 
+                                  MaximumRowsOrColumns="12"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" AllowDrop="False" 
+                                   IsHoldingEnabled="False" IsTapEnabled="False" IsTextSelectionEnabled="False"
+                                   Margin="5" Width="270" FontWeight="Light"
+                                   Style="{StaticResource DefaultTextBlockStyle}"
+                                   Foreground="White"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+        
+        <ScrollViewer x:Name="ScrollViewerWordsFullScreenPortraitView" 
+                      Grid.Row="3"
+                      Margin="5,5,5,10" 
+                      Style="{StaticResource HorizontalScrollViewerStyle}"
+                      Visibility="Collapsed">
+            <ListView x:Name="lstWordsPortraitView"
+                      Background="Black" 
+                      IsItemClickEnabled="False" IsTapEnabled="False" 
+                      SelectionMode="None" IsHoldingEnabled="False" 
+                      AllowDrop="False" CanDragItems="False"
+                      ItemsSource="{Binding Words}">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapGrid IsTapEnabled="False" AllowDrop="False" IsHoldingEnabled="False"
+                                  VirtualizingStackPanel.VirtualizationMode="Recycling" 
+                                  MaximumRowsOrColumns="25"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" AllowDrop="False" 
+                                   IsHoldingEnabled="False" IsTapEnabled="False" IsTextSelectionEnabled="False"
+                                   Margin="5" Width="270" FontWeight="Light"
+                                   Style="{StaticResource DefaultTextBlockStyle}"
+                                   Foreground="White"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="ScrollViewerWordsSnappedView" 
+                      Grid.Row="3"
+                      Margin="5,5,5,10" 
+                      Style="{StaticResource HorizontalScrollViewerStyle}" Visibility="Collapsed">
+            <ListView x:Name="lstWordsSnappedView"
+                      Background="Black" 
+                      IsItemClickEnabled="False" IsTapEnabled="False" 
+                      SelectionMode="None" IsHoldingEnabled="False" 
+                      AllowDrop="False" CanDragItems="False"
+                      ItemsSource="{Binding Words,Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" AllowDrop="False" 
+                                   IsHoldingEnabled="False" IsTapEnabled="False" IsTextSelectionEnabled="False"
+                                   Margin="5" Width="250" FontWeight="Light"
+                                   Style="{StaticResource TextBlockStyleSnappedView}"
+                                   Foreground="White"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+
+        <VisualStateManager.VisualStateGroups>
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup>
+                <VisualState x:Name="FullScreenLandscape"/>
+                <VisualState x:Name="Filled">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollViewerWordsFilledView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollViewerWordsSnappedView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollViewerWordsFullScreenPortraitView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollViewerWordsFullScreenPortraitView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollViewerWordsFilledView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollViewerWordsSnappedView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollViewerWordsSnappedView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollViewerWordsFilledView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+    </Grid>
+
+</common:LayoutAwarePage>
+

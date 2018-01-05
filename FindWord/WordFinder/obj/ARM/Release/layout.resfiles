@@ -1,0 +1,14 @@
+Assets\FindWord150.png
+Assets\FindWord30x30.png
+Assets\FindWord310x150.png
+Assets\FindWord50x50.png
+Assets\FindWord620x300.png
+App.xaml
+Controls\AboutControl.xaml
+Controls\HelpControl.xaml
+Controls\PrivacyControl.xaml
+Views\ExtendedSplash.xaml
+Views\Shell.xaml
+Views\StartPage.xaml
+Views\WordsWithTheSameLengthPage.xaml
+Data\words.json

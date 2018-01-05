@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="F00E55E9-F7BF-4D41-9438-CD5DF04A53AE" Publisher="CN=aemobileapps" Version="1.0.0.10" />
+  <Properties>
+    <DisplayName>FindWord</DisplayName>
+    <PublisherDisplayName>aemobileapps</PublisherDisplayName>
+    <Logo>Assets\FindWord50x50.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="FindWord.App">
+      <VisualElements DisplayName="FindWord" Logo="Assets\FIndWord150.png" SmallLogo="Assets\FindWord30x30.png" Description="This application allows to find words using the some letter of word" ForegroundText="light" BackgroundColor="#464646">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\FindWord310x150.png" />
+        <SplashScreen Image="Assets\FindWord620x300.png" />
+        <InitialRotationPreference>
+          <Rotation Preference="portrait" />
+          <Rotation Preference="landscape" />
+          <Rotation Preference="portraitFlipped" />
+          <Rotation Preference="landscapeFlipped" />
+        </InitialRotationPreference>
+      </VisualElements>
+    </Application>
+  </Applications>
+</Package>

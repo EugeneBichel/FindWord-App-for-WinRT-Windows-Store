@@ -1,0 +1,23 @@
+﻿<Grid 
+      x:Class="FindWord.Views.ExtendedSplash"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      d:DesignWidth="1366" d:DesignHeight="768" Background="#FF7F7F7F">
+
+    <Grid.RowDefinitions>
+        <RowDefinition/>
+        <RowDefinition Height="250"/>
+    </Grid.RowDefinitions>
+
+    <Canvas Grid.Row="0">
+        <Image x:Name="extendedSplashImage" 
+               Source="/Assets/FindWord620x300.png" />
+    </Canvas>
+    <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+        <ProgressRing x:Name="prgRing" Foreground="White" Height="40" Width="40" IsActive="True"/>
+    </StackPanel>
+</Grid>
+

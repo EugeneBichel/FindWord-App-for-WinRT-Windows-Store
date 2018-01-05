@@ -1,0 +1,226 @@
+﻿<common:LayoutAwarePage x:Class="FindWord.Views.StartPage"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:local="using:FindWord"
+                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        xmlns:common="using:FindWord.Common"
+                        DataContext="{Binding StartPageViewModel, Source={StaticResource ViewModelLocator}}"
+                        NavigationCacheMode="Enabled"
+                        mc:Ignorable="d"
+                        d:DesignWidth="1366" d:DesignHeight="768">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <EntranceThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Page.Resources>
+
+        <CollectionViewSource x:Name="groupedItemsSource"
+                              Source="{Binding AllGroups}" 
+                              ItemsPath="TopItems"
+                              IsSourceGrouped="True"/>
+
+        <common:StartPageItemsDataTemplateSelector x:Key="DataTemplateSelectorFilledView" 
+                                                    x:Name="TemplateSelectorFilledView"
+                                                    WordTemplate="{StaticResource WordTileGridViewItemTemplate}"/>
+
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="searchGrid" Grid.Row="0">
+           <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel x:Name="undoRedoPanel" Grid.Row="0" Orientation="Horizontal">
+                <Button x:Name="btnUndo" Grid.Row="0"
+                        Command="{Binding UndoCommand}"
+                        IsEnabled="{Binding UndoEnabled}"
+                        Content=""
+                        ToolTipService.ToolTip="Undo"
+                        Style="{StaticResource UndoRedoButtonStyleFilledView}"/>
+                <Button x:Name="btnRedo" Grid.Row="0"
+                        Command="{Binding RedoCommand}"
+                        IsEnabled="{Binding RedoEnabled}"
+                        Content=""
+                        ToolTipService.ToolTip="Redo"
+                        Style="{StaticResource UndoRedoButtonStyleFilledView}"/>
+            </StackPanel>
+                
+            <Canvas x:Name="cnvPaintArea" Grid.Row="1"
+                    Style="{StaticResource CanvasFilledStyle}">
+                
+                <Button x:ConnectionId='4' x:Name="btnLeft"
+                        Content="&#xE016;"
+                        Style="{StaticResource CanvasButtonFilledStyle}"                    
+                        Canvas.Left="555" Canvas.Top="20"
+                        ManipulationMode="TranslateX"
+                                                                          
+                                                                     
+                                                                            />
+                <Button x:ConnectionId='5' x:Name="btnRight"
+                        Content="&#xE017;"
+                        Style="{StaticResource CanvasButtonFilledStyle}"
+                        Canvas.Left="642" Canvas.Top="20"
+                        ManipulationMode="TranslateX"
+                                                                           
+                                                                      
+                                                                             />
+
+                <Popup x:Name="keywordsPopup" Visibility="Collapsed">
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:ConnectionId='6' x:Name="btnQuestionSymbol"
+                                                                
+                                Margin="2,0" Opacity="0.6"
+                                Canvas.ZIndex="1"
+                                Content="?"
+                                Style="{StaticResource CanvasButtonFilledStyle}"/>
+
+                        <Button x:ConnectionId='7' x:Name="btnStarSymbol"
+                                                            
+                                Margin="2,0" Opacity="0.6"
+                                Canvas.ZIndex="1"
+                                Content="*"
+                                Style="{StaticResource CanvasButtonFilledStyle}"/>
+
+                        <Button x:ConnectionId='8' x:Name="btnPlusSymbol"
+                                                            
+                                Margin="2,0" Opacity="0.6"
+                                Canvas.ZIndex="1"
+                                Content="+"
+                                Style="{StaticResource CanvasButtonFilledStyle}"/>
+                    </StackPanel>
+                </Popup>
+            </Canvas>
+        
+            <Button x:ConnectionId='3' x:Name="btnSearch" Grid.Row="2"
+                                            
+                    Content="Find"
+                    Style="{StaticResource SearchButtonStyleFilledView}"/>
+
+        </Grid>
+
+        <Grid x:Name="ResultsGrid" Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="MatchedWordsHeader"
+                        Grid.Row="0"
+                        Text="Result:" 
+                        Margin="10" 
+                        Style="{StaticResource HeaderTextBlockStyleFilledView}"/>
+
+            <GridView x:Name="SrchResultsFilledView" 
+                        Grid.Row="1"
+                        ItemsSource="{Binding Source={StaticResource groupedItemsSource}}"
+                        ItemTemplateSelector="{StaticResource DataTemplateSelectorFilledView}"
+                        IsHoldingEnabled="False" IsTapEnabled="True" 
+                        IsRightTapEnabled="False" IsItemClickEnabled="False"
+                        ItemContainerStyle="{StaticResource UnselectedGridViewItemStyle}"
+                        SelectionMode="None"  Background="Black">
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+                <GridView.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid Margin="1,0,0,6">
+                                <HyperlinkButton x:ConnectionId='2' Content="{Binding Title}" 
+                                                                                     
+                                                    Style="{StaticResource HyperlinkButtonStyle}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                        <GroupStyle.Panel>
+                            <ItemsPanelTemplate>
+                                <VariableSizedWrapGrid HorizontalAlignment="Left" HorizontalChildrenAlignment="Left"
+                                                        Margin="0,0,80,0" ItemWidth="250"
+                                                        MaximumRowsOrColumns="6" Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </GroupStyle.Panel>
+                    </GroupStyle>
+                </GridView.GroupStyle>
+            </GridView>
+
+            <FlipView x:Name="WordsSnappedView"
+                        Background="Black"
+                        BorderThickness="0"
+                        Grid.Row="1"
+                        ItemsSource="{Binding AllGroups}"
+                        Visibility="Collapsed">
+
+                <FlipView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Margin="1,0,0,6">
+                                <HyperlinkButton x:ConnectionId='1' Content="{Binding Title}" 
+                                                                                     
+                                                    Style="{StaticResource HyperlinkButtonStyle}"/>
+                            </Grid>
+
+                            <ScrollViewer Grid.Row="1"
+                                            Margin="5,5,5,10" 
+                                            Style="{StaticResource VerticalScrollViewerStyle}">
+                                <ListView ItemsSource="{Binding Items}" SelectionMode="None" 
+                                            CanDragItems="False" AllowDrop="False" IsTapEnabled="False"/>
+                            </ScrollViewer>
+                        </Grid>
+                    </DataTemplate>
+                </FlipView.ItemTemplate>
+            </FlipView>
+
+        </Grid>
+
+        <VisualStateManager.VisualStateGroups>
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup>
+                <VisualState x:Name="FullScreenLandscape"/>
+                <VisualState x:Name="FullScreenPortrait"/>
+                <VisualState x:Name="Filled">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SrchResultsFilledView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="WordsSnappedView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="WordsSnappedView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SrchResultsFilledView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+    </Grid>
+
+</common:LayoutAwarePage>
+

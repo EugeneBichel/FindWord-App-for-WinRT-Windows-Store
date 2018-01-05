@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>EUGENE_PC</Machine>
+    <WindowsUser>biche_000</WindowsUser>
+    <SolutionConfiguration>Release|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <RegisteredManifestChecksum>98873DE46D3223EC00C4FEF4BB7D59F5A68996435875805529282DC8FB72A9A2</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>F00E55E9-F7BF-4D41-9438-CD5DF04A53AE_1.0.0.9_neutral__y727pw428c00a</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>F00E55E9-F7BF-4D41-9438-CD5DF04A53AE_y727pw428c00a!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>F00E55E9-F7BF-4D41-9438-CD5DF04A53AE</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=aemobileapps</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.9</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-03-10T16:39:53.674</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\FindWord.exe">
+      <PackagePath>FindWord.exe</PackagePath>
+      <Modified>2013-03-10T16:39:53.366</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\FindWord.pdb">
+      <PackagePath>FindWord.pdb</PackagePath>
+      <Modified>2013-03-10T16:39:53.346</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\packages\metroioc.2.0.5.0\lib\winrt45\metroioc.dll">
+      <PackagePath>metroioc.dll</PackagePath>
+      <Modified>2013-02-24T11:13:41.275</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\packages\Newtonsoft.Json.4.5.9\lib\winrt45\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2013-02-20T16:47:33.776</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\packages\Newtonsoft.Json.4.5.9\lib\winrt45\Newtonsoft.Json.xml">
+      <PackagePath>Newtonsoft.Json.xml</PackagePath>
+      <Modified>2013-02-20T16:47:33.790</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Assets\FindWord150.png">
+      <PackagePath>Assets\FindWord150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-03-03T08:20:29.162</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Assets\FindWord30x30.png">
+      <PackagePath>Assets\FindWord30x30.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-03-03T08:29:34.335</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Assets\FindWord310x150.png">
+      <PackagePath>Assets\FindWord310x150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-03-03T08:25:19.145</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Assets\FindWord50x50.png">
+      <PackagePath>Assets\FindWord50x50.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-03-03T08:30:27.739</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Assets\FindWord620x300.png">
+      <PackagePath>Assets\FindWord620x300.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-03-03T08:35:35.682</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\Data\words.json">
+      <PackagePath>Data\words.json</PackagePath>
+      <Modified>2013-02-28T09:17:35.181</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+      <Modified>2013-03-10T13:28:33.186</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Controls\PrivacyControl.xaml">
+      <PackagePath>Controls\PrivacyControl.xaml</PackagePath>
+      <Modified>2013-03-10T09:23:29.048</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Controls\HelpControl.xaml">
+      <PackagePath>Controls\HelpControl.xaml</PackagePath>
+      <Modified>2013-03-10T10:18:44.112</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Views\WordsWithTheSameLengthPage.xaml">
+      <PackagePath>Views\WordsWithTheSameLengthPage.xaml</PackagePath>
+      <Modified>2013-03-02T11:33:54.563</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Views\ExtendedSplash.xaml">
+      <PackagePath>Views\ExtendedSplash.xaml</PackagePath>
+      <Modified>2013-03-03T08:40:40.695</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Controls\AboutControl.xaml">
+      <PackagePath>Controls\AboutControl.xaml</PackagePath>
+      <Modified>2013-03-10T09:30:06.344</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Views\Shell.xaml">
+      <PackagePath>Views\Shell.xaml</PackagePath>
+      <Modified>2013-03-10T07:46:57.043</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\Views\StartPage.xaml">
+      <PackagePath>Views\StartPage.xaml</PackagePath>
+      <Modified>2013-03-10T13:06:38.892</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\biche_000\wordfinder\FindWord\WordFinder\bin\Release\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2013-03-10T16:39:53.613</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
